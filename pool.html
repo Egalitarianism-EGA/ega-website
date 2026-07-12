@@ -27,39 +27,48 @@
     <div class="page-head">
       <h1>Mining pool</h1>
       <p>
-        A stratum pool — point your miner at a server, share work, get paid like on
-        Herominers or any other public pool.
+        How a public stratum pool will look once operators publish a host.
+        There is <strong>no public EGA pool hostname yet</strong> — ports below are the planned layout.
       </p>
     </div>
 
     <section>
-      <h2>Connection</h2>
-      <table>
-        <tr><th>RandomX</th><td><code>stratum+tcp://POOL_HOST:3333</code></td></tr>
-        <tr><th>Verthash</th><td><code>stratum+tcp://POOL_HOST:3334</code></td></tr>
-        <tr><th>YespowerEGA</th><td><code>stratum+tcp://POOL_HOST:3335</code></td></tr>
-      <tr><th>Scrypt</th><td><code>stratum+tcp://POOL_HOST:3336</code></td></tr>
-        <tr><th>Username</th><td>Your EGA wallet address</td></tr>
-        <tr><th>Password</th><td><code>x</code> (or worker name)</td></tr>
-      </table>
+      <h2>Status</h2>
       <div class="note">
-        Replace <code>POOL_HOST</code> with the published pool hostname or IP.
-        When the public pool is live, this page will show the exact host.
+        <strong>Not live as a public service.</strong>
+        Solo mining and friend-to-friend nodes work today (see <a href="mine.html">Mine</a>).
+        Operators can run Miningcore locally (Verthash on <code>:3334</code> is the path that does real share verification today).
       </div>
     </section>
 
     <section>
-      <h2>Pool dashboard</h2>
-      <p class="sub">Stats UI for operators and miners (local default):</p>
-      <p><a class="btn btn-primary" href="http://127.0.0.1:4000/api/pools" target="_blank" rel="noopener">http://127.0.0.1:4000/api/pools</a></p>
-      <p class="sub" style="margin-top:.75rem">Start stack: <code>bash scripts/start-miningcore.sh  # Verthash :3334</code></p>
+      <h2>Planned ports (when a host is published)</h2>
+      <table>
+        <tr><th>RandomX</th><td><code>stratum+tcp://POOL_HOST:3333</code></td></tr>
+        <tr><th>Verthash</th><td><code>stratum+tcp://POOL_HOST:3334</code></td></tr>
+        <tr><th>YespowerEGA</th><td><code>stratum+tcp://POOL_HOST:3335</code></td></tr>
+        <tr><th>Scrypt</th><td><code>stratum+tcp://POOL_HOST:3336</code></td></tr>
+        <tr><th>Username</th><td>Your EGA wallet address</td></tr>
+        <tr><th>Password</th><td><code>x</code> (or worker name)</td></tr>
+      </table>
+      <div class="note">
+        Replace <code>POOL_HOST</code> only after an operator publishes one.
+        Until then these are placeholders — not fake live endpoints.
+      </div>
     </section>
 
     <section>
-      <h2>No pool yet?</h2>
+      <h2>Local operator dashboard</h2>
+      <p class="sub">Only works on the machine running Miningcore:</p>
+      <p><code>http://127.0.0.1:4000/api/pools</code></p>
+      <p class="sub" style="margin-top:.75rem">Start: <code>bash scripts/start-miningcore.sh</code> (Verthash stratum <code>:3334</code>)</p>
+    </section>
+
+    <section>
+      <h2>Mine without a pool</h2>
       <p class="sub">
-        You can still mine. Solo and multi-node mining work today —
-        see <a href="mine.html">Mine</a>. Pool is for shared rewards across many miners.
+        Use the v0.2.0 release, <code>easy-mine.sh</code>, or multi-node docs —
+        see <a href="mine.html">Mine</a>.
       </p>
     </section>
 
