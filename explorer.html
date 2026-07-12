@@ -42,10 +42,14 @@
         <div class="card">
           <h3>Public explorer</h3>
           <p>
-            A public URL (hosted for everyone) will be listed here when the operator
-            publishes one. Until then, local explorer + your node is the full product.
+            Early public tunnel (operator PC — may change when the tunnel restarts):
           </p>
-          <div class="meta" id="public-url">Public URL: not published yet</div>
+          <p style="margin-top:.75rem">
+            <a class="btn btn-primary" id="public-url"
+               href="https://deposit-represented-seem-wrestling.trycloudflare.com"
+               target="_blank" rel="noopener">Open public explorer</a>
+          </p>
+          <p class="sub" style="margin-top:.85rem">Stable hostname later; for now this is a Cloudflare quick tunnel.</p>
         </div>
       </div>
     </section>
@@ -53,11 +57,14 @@
     <section>
       <h2>What it shows</h2>
       <ul class="steps">
-        <li>Current height and best block</li>
-        <li>Recent blocks with hashes and tx counts</li>
-        <li>Block details (time, difficulty, transactions)</li>
-        <li>Transaction lookup (after <code>txindex=1</code> on the node)</li>
+        <li>Current height and best block from <em>your</em> node</li>
+        <li>Recent blocks with algo, reward, difficulty</li>
+        <li>Issued supply and coinbase maturity note (rewards immature for 8 confs)</li>
+        <li>Transaction lookup when <code>txindex=1</code></li>
       </ul>
+      <div class="note" style="margin-top:1rem">
+        Local explorer is not a global public chain view until you have peers and a published URL.
+      </div>
     </section>
 
     <footer>
