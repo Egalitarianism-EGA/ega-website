@@ -3,78 +3,96 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Egalitarianism (EGA)</title>
-  <meta name="description" content="Egalitarianism is a fair-launch multi-algo proof-of-work cryptocurrency. Wallet, node, mining." />
+  <title>Egalitarianism (EGA) — Fair-launch multi-algo PoW</title>
+  <meta name="description" content="Egalitarianism is a fair-launch cryptocurrency. Mine with CPU or GPU. No premine. Wallet, explorer, and pool." />
   <link rel="icon" href="assets/icon.png" type="image/png" />
   <link rel="stylesheet" href="assets/site.css" />
 </head>
 <body>
   <div class="wrap">
-    <div class="top">
+    <header class="nav">
       <a class="brand" href="./">
-        <img src="assets/icon.png" width="32" height="32" alt="" />
-        Egalitarianism
+        <img src="assets/icon.png" width="40" height="40" alt="EGA" />
+        <span>Egalitarianism</span>
       </a>
-      <nav>
-        <a href="start.html">Start</a>
+      <nav class="nav-links">
+        <a href="download.html">Download</a>
         <a href="mine.html">Mine</a>
         <a href="explorer.html">Explorer</a>
         <a href="pool.html">Pool</a>
+        <a href="roadmap.html">Roadmap</a>
         <a href="whitepaper.html">Whitepaper</a>
-        <a href="specs.html">Specs</a>
       </nav>
-    </div>
+    </header>
 
-    <h1>A fair-launch coin you can actually run.</h1>
-    <p class="lead">
-      EGA is multi-algo proof-of-work: RandomX, Verthash, and YespowerEGA.
-      No premine. CPU, GPU, or low-power machines.
-    </p>
-    <div class="actions">
-      <a class="btn btn-dark" href="start.html">Get started</a>
-      <a class="btn btn-light" href="mine.html">Mining</a>
-      <a class="btn btn-light" href="whitepaper.html">Whitepaper</a>
-    </div>
-
-    <h2>Applications</h2>
-    <div class="apps">
-      <div class="app">
-        <h3>Wallet</h3>
-        <p>Send and receive EGA. Desktop GUI or CLI.</p>
-        <span class="prog">ega-qt · ega-cli</span>
+    <section class="hero">
+      <div>
+        <div class="pill">Fair launch · 0% premine</div>
+        <h1>Crypto anyone can mine.</h1>
+        <p class="lead">
+          Egalitarianism (EGA) is a multi-algorithm proof-of-work network.
+          CPU, GPU, and low-power devices — three doors into the same chain.
+        </p>
+        <div class="cta">
+          <a class="btn btn-primary" href="download.html">Download</a>
+          <a class="btn btn-ghost" href="mine.html">Start mining</a>
+          <a class="btn btn-ghost" href="whitepaper.html">Whitepaper</a>
+        </div>
       </div>
-      <div class="app">
-        <h3>Node</h3>
-        <p>Full chain. Peers on port 20201.</p>
-        <span class="prog">egad</span>
+      <div class="hero-visual">
+        <img src="assets/hero-coin.png" alt="Egalitarianism coin" />
+        <div class="tag">EGA · RandomX · Verthash · YespowerEGA</div>
       </div>
-      <div class="app">
-        <h3>Miner</h3>
-        <p>Solo CPU/GPU, multi-node network, or pool.</p>
-        <span class="prog">CPU · GPU · stratum</span>
+    </section>
+
+    <section>
+      <h2>What you can do</h2>
+      <p class="sub">Same idea as other coins — wallet, chain explorer, and mining.</p>
+      <div class="grid3">
+        <div class="card">
+          <h3>Wallet</h3>
+          <p>Hold EGA, send and receive. Desktop GUI or command line.</p>
+          <div class="meta">ega-qt · ega-cli</div>
+        </div>
+        <div class="card">
+          <h3>Mine</h3>
+          <p>Solo on your PC, join the network with friends, or use the pool when online.</p>
+          <div class="meta">CPU · GPU</div>
+        </div>
+        <div class="card">
+          <h3>Explore</h3>
+          <p>Browse blocks and transactions. Run the explorer with your node, or use a public host when published.</p>
+          <div class="meta">Block explorer</div>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <h2>At a glance</h2>
-    <table>
-      <tr><th>Max supply</th><td>21,000,000,000 EGA</td></tr>
-      <tr><th>Block time</th><td>~60 seconds</td></tr>
-      <tr><th>Subsidy</th><td>50,000 EGA, halving every 210,000 blocks</td></tr>
-      <tr><th>Premine</th><td>None</td></tr>
-      <tr><th>PoW</th><td>RandomX · Verthash · YespowerEGA</td></tr>
-      <tr><th>P2P / RPC</th><td>20201 / 20202</td></tr>
-    </table>
+    <section>
+      <h2>Network at a glance</h2>
+      <p class="sub">Fixed from genesis. Full detail in the whitepaper.</p>
+      <table>
+        <tr><th>Max supply</th><td>21,000,000,000 EGA</td></tr>
+        <tr><th>Block time</th><td>~60 seconds</td></tr>
+        <tr><th>Block reward</th><td>50,000 EGA (halves every 210,000 blocks)</td></tr>
+        <tr><th>Premine</th><td>None</td></tr>
+        <tr><th>Algorithms</th><td>RandomX · Verthash · YespowerEGA</td></tr>
+        <tr><th>Network port</th><td>20201</td></tr>
+      </table>
+    </section>
 
-    <h2>Source</h2>
-    <p>
-      <a href="https://github.com/Egalitarianism-EGA/ega">Core repository</a> ·
-      <a href="https://github.com/Egalitarianism-EGA/ega-verthash-miner">GPU miner</a> ·
-      <a href="https://github.com/Egalitarianism-EGA">All projects</a>
-    </p>
+    <section>
+      <h2>Get on the network</h2>
+      <p class="sub">Linux first. Windows package next. Prebuilt downloads on GitHub Releases when published.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="download.html">Download &amp; install</a>
+        <a class="btn btn-ghost" href="https://github.com/Egalitarianism-EGA/ega/releases">Releases</a>
+        <a class="btn btn-ghost" href="roadmap.html">Roadmap</a>
+      </div>
+    </section>
 
     <footer>
       <span>Egalitarianism (EGA)</span>
-      <span>Open source · experimental</span>
+      <span><a href="https://github.com/Egalitarianism-EGA">GitHub</a> · open source</span>
     </footer>
   </div>
 </body>

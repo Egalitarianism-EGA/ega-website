@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Download — Egalitarianism</title>
+  <link rel="icon" href="assets/icon.png" type="image/png" />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="nav">
+      <a class="brand" href="./">
+        <img src="assets/icon.png" width="40" height="40" alt="EGA" />
+        <span>Egalitarianism</span>
+      </a>
+      <nav class="nav-links">
+        <a class="on" href="download.html">Download</a>
+        <a href="mine.html">Mine</a>
+        <a href="explorer.html">Explorer</a>
+        <a href="pool.html">Pool</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="whitepaper.html">Whitepaper</a>
+      </nav>
+    </header>
+
+    <div class="page-head">
+      <h1>Download</h1>
+      <p>Install the wallet and full node. That’s enough to join the network and mine.</p>
+    </div>
+
+    <section>
+      <h2>Prebuilt packages</h2>
+      <p class="sub">Grab a release if available — no compiler required.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://github.com/Egalitarianism-EGA/ega/releases">GitHub Releases</a>
+      </div>
+      <div class="note" style="margin-top:1rem">
+        Look for the latest Linux tarball (<code>ega-*-linux-x86_64.tar.gz</code>) with <code>egad</code>, <code>ega-cli</code>, and <code>ega-qt</code> when the GUI is included.
+      </div>
+    </section>
+
+    <section>
+      <h2>Build from source (Linux)</h2>
+      <pre><code>git clone https://github.com/Egalitarianism-EGA/ega.git
+cd ega
+bash scripts/easy-install-linux.sh
+bash scripts/easy-start.sh
+bash scripts/easy-wallet.sh</code></pre>
+      <p class="sub">Optional desktop menu icons: <code>bash scripts/install-desktop-apps.sh</code></p>
+    </section>
+
+    <section>
+      <h2>What you get</h2>
+      <div class="grid3">
+        <div class="card">
+          <h3>Node</h3>
+          <p>Keeps the chain and talks to peers.</p>
+          <div class="meta">egad</div>
+        </div>
+        <div class="card">
+          <h3>Wallet (CLI)</h3>
+          <p>Addresses, send, backup.</p>
+          <div class="meta">ega-cli</div>
+        </div>
+        <div class="card">
+          <h3>Wallet (GUI)</h3>
+          <p>Desktop app when built with Qt.</p>
+          <div class="meta">ega-qt</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Next steps</h2>
+      <ol class="steps">
+        <li>Start the node and wait for it to run.</li>
+        <li>Create a receive address and back up your wallet.</li>
+        <li><a href="mine.html">Mine</a> solo or via the <a href="pool.html">pool</a>.</li>
+        <li>Browse the chain with the <a href="explorer.html">explorer</a>.</li>
+      </ol>
+    </section>
+
+    <footer>
+      <span><a href="./">← Home</a></span>
+      <span>Egalitarianism</span>
+    </footer>
+  </div>
+</body>
+</html>

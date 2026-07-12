@@ -4,131 +4,90 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Whitepaper — Egalitarianism</title>
-  <meta name="description" content="Egalitarianism (EGA) whitepaper: fair-launch multi-algo proof-of-work." />
   <link rel="icon" href="assets/icon.png" type="image/png" />
   <link rel="stylesheet" href="assets/site.css" />
 </head>
 <body>
   <div class="wrap paper">
-    <div class="top">
+    <header class="nav">
       <a class="brand" href="./">
-        <img src="assets/icon.png" width="32" height="32" alt="" />
-        Egalitarianism
+        <img src="assets/icon.png" width="40" height="40" alt="EGA" />
+        <span>Egalitarianism</span>
       </a>
-      <nav>
-        <a href="start.html">Start</a>
+      <nav class="nav-links">
+        <a href="download.html">Download</a>
         <a href="mine.html">Mine</a>
         <a href="explorer.html">Explorer</a>
         <a href="pool.html">Pool</a>
-        <a class="active" href="whitepaper.html">Whitepaper</a>
-        <a href="specs.html">Specs</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a class="on" href="whitepaper.html">Whitepaper</a>
       </nav>
+    </header>
+    <div class="page-head">
+      <h1>Whitepaper</h1>
+      <p>Egalitarianism (EGA) · v0.1 · fair-launch multi-algo PoW. Not financial advice.</p>
     </div>
-
-    <h1>Whitepaper</h1>
-    <p class="muted">Egalitarianism (EGA) · v0.1 draft · living document aligned with shipped Core parameters. Not financial advice.</p>
 
     <h2>1. Vision</h2>
     <p>Money and mining power should not require elite hardware or insider allocation.</p>
-    <p><strong>Egalitarianism</strong> aims to:</p>
     <ul>
-      <li>Keep permissionless access to create and transfer value</li>
-      <li>Keep mining open to CPUs, consumer GPUs, phones, and single-board computers</li>
-      <li>Avoid premine / founder stash at genesis</li>
-      <li>Resist capture by a single hardware class</li>
+      <li>Permissionless value transfer</li>
+      <li>Mining open to CPUs, GPUs, phones, and SBCs</li>
+      <li>No premine / founder stash</li>
+      <li>Resist single hardware-class capture</li>
     </ul>
-    <p>Short name / ticker: <strong>EGA</strong>.</p>
 
-    <h2>2. Design principles</h2>
+    <h2>2. Principles</h2>
     <ol>
-      <li><strong>Fair launch</strong> — no premine; genesis coinbase value is zero.</li>
-      <li><strong>Multi-door mining</strong> — three algorithms, three hardware paths.</li>
-      <li><strong>Simple emission</strong> — Bitcoin-style halvings, transparent math.</li>
-      <li><strong>Independent difficulty</strong> — MultiShield-style per-algo adjustment.</li>
-      <li><strong>Honesty</strong> — capital still matters; the design raises the bar for monopoly, it does not erase it.</li>
+      <li><strong>Fair launch</strong> — genesis reward is zero</li>
+      <li><strong>Multi-door mining</strong> — three algorithms</li>
+      <li><strong>Simple emission</strong> — Bitcoin-style halvings</li>
+      <li><strong>Independent difficulty</strong> — MultiShield per algo</li>
+      <li><strong>Honesty</strong> — capital still matters; design raises the bar for monopoly</li>
     </ol>
 
     <h2>3. Tokenomics</h2>
     <table>
-      <tr><th>Name</th><td>Egalitarianism</td></tr>
-      <tr><th>Ticker</th><td>EGA</td></tr>
       <tr><th>Max supply</th><td>21,000,000,000 EGA</td></tr>
       <tr><th>Decimals</th><td>8</td></tr>
-      <tr><th>Initial subsidy</th><td>50,000 EGA per block</td></tr>
+      <tr><th>Subsidy</th><td>50,000 EGA / block</td></tr>
       <tr><th>Halving</th><td>Every 210,000 blocks</td></tr>
       <tr><th>Block time</th><td>~60 seconds</td></tr>
       <tr><th>Premine</th><td>0</td></tr>
-    </table>
-    <p>Emission follows the same geometric structure as Bitcoin, scaled to 21 billion. Integer halvings yield just under 21B due to truncation.</p>
-    <table>
-      <tr><th>Premine / team</th><td>0%</td></tr>
-      <tr><th>VC / ICO</th><td>0%</td></tr>
       <tr><th>Public PoW</th><td>100% of emission</td></tr>
     </table>
-    <p>Development funding, if any, is off-chain — not baked into consensus.</p>
 
-    <h2>4. Consensus &amp; mining</h2>
+    <h2>4. Mining</h2>
     <table>
-      <tr><th>RandomX</th><td>Modern CPUs, capable phones/PCs</td></tr>
-      <tr><th>Verthash</th><td>Consumer GPUs · EGA dataset tag <code>EGA-Verthash-v1</code> (256&nbsp;MiB)</td></tr>
-      <tr><th>YespowerEGA</th><td>Low-RAM / older devices · N=2048, r=32, personalization <code>YespowerEGA</code></td></tr>
+      <tr><th>RandomX</th><td>Modern CPUs</td></tr>
+      <tr><th>Verthash</th><td>GPUs · EGA dataset (256 MiB)</td></tr>
+      <tr><th>YespowerEGA</th><td>Low-RAM / older devices</td></tr>
     </table>
-    <p><strong>MultiShield-style</strong> difficulty keeps independent adjustment per algorithm so overall block time stays near 60s.</p>
+    <p>MultiShield keeps per-algo difficulty so one hardware class cannot freeze the others.</p>
+
+    <h2>5. Network</h2>
     <table>
       <tr><th>P2P</th><td>20201</td></tr>
       <tr><th>RPC</th><td>20202</td></tr>
       <tr><th>bech32</th><td>ega</td></tr>
-      <tr><th>Magic</th><td>e4 47 41 01</td></tr>
     </table>
-    <p>Changing genesis or money constants after launch creates a different chain.</p>
 
-    <h2>5. Node software</h2>
-    <p>
-      <strong>Egalitarianism Core</strong> (<code>egad</code>, <code>ega-cli</code>, <code>ega-qt</code>) is a full node
-      derived from DigiByte/Bitcoin Core architecture, customized for these rules.
-      Solo mining via RPC; GBT for external miners.
-    </p>
-    <p>Source: <a href="https://github.com/Egalitarianism-EGA/ega">github.com/Egalitarianism-EGA/ega</a></p>
-
-    <h2>6. Roadmap</h2>
-    <h3>Phase A — Live chain</h3>
-    <ul>
-      <li>Consensus + triple PoW + genesis</li>
-      <li>Solo mining (CPU + GPU Verthash path)</li>
-      <li>24/7 seed node(s) and public addnode list</li>
-      <li>Linux binary release</li>
-    </ul>
-    <h3>Phase B — Community</h3>
-    <ul>
-      <li>Independent nodes</li>
-      <li>Public explorer and multi-algo pool</li>
-      <li>Clear user mining docs</li>
-    </ul>
-    <h3>Phase C — Maturity</h3>
-    <ul>
-      <li>Signed releases</li>
-      <li>Optional RandomX full-mem mode</li>
-      <li>Algo upgrade policy if ASICs appear</li>
-    </ul>
+    <h2>6. Software</h2>
+    <p>Egalitarianism Core provides <code>egad</code>, <code>ega-cli</code>, and <code>ega-qt</code> — node, CLI wallet, and desktop wallet.</p>
 
     <h2>7. Risks</h2>
     <ul>
-      <li>Low hashrate early → 51% is easier; multi-algo helps, does not eliminate risk</li>
-      <li>Software bugs in a young fork</li>
-      <li>Pool centralization if one pool dominates an algo</li>
-      <li>Verthash miner mismatch if the wrong dataset is used</li>
+      <li>Low early hashrate increases 51% risk</li>
+      <li>Young software may have bugs</li>
+      <li>Pool centralization if one pool dominates</li>
     </ul>
 
     <h2>8. Disclaimer</h2>
-    <p>
-      This document describes software and economic parameters. It is not an offer of securities,
-      investment advice, or a promise of value. Cryptocurrency involves risk of total loss.
-      Run software at your own risk.
-    </p>
+    <p>This describes software parameters. It is not investment advice. You can lose money. Use at your own risk.</p>
 
     <footer>
       <span><a href="./">← Home</a></span>
-      <span>v0.1 draft</span>
+      <span>v0.1</span>
     </footer>
   </div>
 </body>

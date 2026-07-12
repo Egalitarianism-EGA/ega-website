@@ -3,64 +3,67 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mining — Egalitarianism</title>
+  <title>Mine — Egalitarianism</title>
   <link rel="icon" href="assets/icon.png" type="image/png" />
   <link rel="stylesheet" href="assets/site.css" />
 </head>
 <body>
   <div class="wrap">
-    <div class="top">
+    <header class="nav">
       <a class="brand" href="./">
-        <img src="assets/icon.png" width="32" height="32" alt="" />
-        Egalitarianism
+        <img src="assets/icon.png" width="40" height="40" alt="EGA" />
+        <span>Egalitarianism</span>
       </a>
-      <nav>
-        <a href="start.html">Start</a>
-        <a class="active" href="mine.html">Mine</a>
+      <nav class="nav-links">
+        <a href="download.html">Download</a>
+        <a class="on" href="mine.html">Mine</a>
         <a href="explorer.html">Explorer</a>
         <a href="pool.html">Pool</a>
+        <a href="roadmap.html">Roadmap</a>
         <a href="whitepaper.html">Whitepaper</a>
-        <a href="specs.html">Specs</a>
       </nav>
+    </header>
+
+    <div class="page-head">
+      <h1>Mine EGA</h1>
+      <p>Three algorithms. Mine alone, with friends on the same network, or through a pool.</p>
     </div>
 
-    <h1>Mining</h1>
-    <p class="lead">Three algorithms. Solo, multi-node, or pool.</p>
+    <section>
+      <h2>Pick your hardware</h2>
+      <table>
+        <tr><th>RandomX</th><td>Modern CPUs — best everyday option</td></tr>
+        <tr><th>YespowerEGA</th><td>Weaker CPUs, older machines, Pi-class devices</td></tr>
+        <tr><th>Verthash</th><td>GPUs — see the GPU miner guide on GitHub</td></tr>
+      </table>
+    </section>
 
-    <h2>Algorithms</h2>
-    <table>
-      <tr><th>RandomX</th><td>Modern CPUs — <code>bash scripts/easy-mine.sh randomx</code></td></tr>
-      <tr><th>YespowerEGA</th><td>Weaker CPUs / Pi — <code>bash scripts/easy-mine.sh yespower-ega</code></td></tr>
-      <tr><th>Verthash</th><td>GPUs — <a href="https://github.com/Egalitarianism-EGA/ega-verthash-miner">ega-verthash-miner</a></td></tr>
-    </table>
+    <section>
+      <h2>Solo mining</h2>
+      <p class="sub">You run a node and mine to your own wallet. Blocks you find pay you.</p>
+      <pre><code>bash scripts/easy-start.sh
+bash scripts/easy-mine.sh randomx
+# or: bash scripts/easy-mine.sh yespower-ega</code></pre>
+      <p class="sub">GPU: <a href="https://github.com/Egalitarianism-EGA/ega-verthash-miner">ega-verthash-miner</a></p>
+    </section>
 
-    <h2>Solo</h2>
-    <p>You run a node and mine to your wallet. Blocks you find are yours (after coinbase maturity).</p>
-    <pre><code>bash scripts/easy-start.sh
-bash scripts/easy-mine.sh randomx</code></pre>
+    <section>
+      <h2>Pool mining</h2>
+      <p class="sub">Connect your miner to a stratum pool and get paid by share of work — like other coins.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="pool.html">Pool details</a>
+      </div>
+    </section>
 
-    <h2>Multi-node (same chain)</h2>
-    <p>
-      Two or more people each run <code>egad</code>, connect as peers, and mine.
-      Same chain tip; each keeps the blocks they find.
-    </p>
-    <p>Seed operator: leave <code>egad</code> running, port <strong>20201</strong> reachable.</p>
-    <p>Everyone else, in <code>~/.ega/ega.conf</code>:</p>
-    <pre><code>addnode=SEED_IP:20201</code></pre>
-    <p>Local test on one PC:</p>
-    <pre><code>bash scripts/two-node-mining-demo.sh</code></pre>
-
-    <h2>Pool (shared rewards)</h2>
-    <p>
-      A pool splits block rewards by work. See the <a href="pool.html">pool page</a>
-      for setup and ports.
-    </p>
-
-    <h2>Continuous solo loop</h2>
-    <pre><code>ADDR=$(./src/ega-cli getnewaddress)
-while true; do
-  ./src/ega-cli generatetoaddress 1 "$ADDR" 10000000 randomx || sleep 1
-done</code></pre>
+    <section>
+      <h2>Mine with friends (no pool)</h2>
+      <p class="sub">
+        Everyone runs a node and connects to each other. Same chain.
+        Whoever finds a block keeps that reward.
+      </p>
+      <pre><code># on your machine (~/.ega/ega.conf)
+addnode=FRIEND_IP:20201</code></pre>
+    </section>
 
     <footer>
       <span><a href="./">← Home</a></span>
