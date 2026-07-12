@@ -1,10 +1,13 @@
-# Egalitarianism (EGA) — Website (GitHub Pages ready)
+# Egalitarianism website
 
-Simple static landing for **Egalitarianism**. Free host: enable **GitHub Pages** on this repo (main branch `/` or `/docs`).
+Static landing page for **Egalitarianism (EGA)**.
 
-## Contents
+**Live:** https://egalitarianism-ega.github.io/ega-website/
 
-- `index.html` — landing  
-- Links to Core, whitepaper, miners, GitHub  
+## Edit
 
-Edit and push; Pages updates automatically.
+Change `index.html`, commit, push to `main`. GitHub Pages updates in a minute or two.
+
+## Enable Pages (if 404)
+
+Repo **Settings → Pages → Deploy from a branch → main / (root)**.

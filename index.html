@@ -3,233 +3,294 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Egalitarianism — EGA</title>
-  <meta name="description" content="Egalitarianism (EGA) is a fair-launch proof-of-work cryptocurrency. Run a node, use a wallet, mine with CPU or GPU." />
+  <title>Egalitarianism (EGA)</title>
+  <meta name="description" content="Egalitarianism is a fair-launch multi-algo proof-of-work cryptocurrency. Run a wallet, a node, and mine with CPU or GPU." />
   <link rel="icon" href="assets/icon.png" type="image/png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --ink: #0c1222;
-      --muted: #5a6578;
-      --line: #e4e8ef;
-      --paper: #f7f8fa;
-      --white: #ffffff;
-      --teal: #0d9488;
-      --teal-dark: #0f766e;
-      --navy: #0f2744;
+      --bg: #fafafa;
+      --fg: #1a1a1a;
+      --muted: #555;
+      --border: #ddd;
+      --card: #fff;
+      --link: #0b6e4f;
+      --link-hover: #08553c;
+      --btn: #1a1a1a;
+      --btn-fg: #fff;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; }
+    html { font-size: 17px; }
     body {
-      font-family: "DM Sans", system-ui, sans-serif;
-      color: var(--ink);
-      background: var(--white);
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--fg);
+      background: var(--bg);
       line-height: 1.55;
-      font-size: 16px;
     }
-    a { color: var(--teal-dark); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .wrap { max-width: 960px; margin: 0 auto; padding: 0 1.25rem; }
+    a { color: var(--link); }
+    a:hover { color: var(--link-hover); }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 0 1.25rem 3rem; }
 
-    nav {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.1rem 0; border-bottom: 1px solid var(--line);
+    header {
+      padding: 2.5rem 0 1.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2rem;
     }
-    nav .brand { display: flex; align-items: center; gap: 0.65rem; font-weight: 600; color: var(--ink); text-decoration: none; }
-    nav .brand img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
-    nav .links { display: flex; gap: 1.25rem; font-size: 0.95rem; flex-wrap: wrap; }
-    nav .links a { color: var(--muted); text-decoration: none; }
-    nav .links a:hover { color: var(--ink); }
-
-    .hero {
-      display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 2.5rem;
-      align-items: center; padding: 3.5rem 0 3rem;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      margin-bottom: 1.25rem;
     }
-    @media (max-width: 780px) {
-      .hero { grid-template-columns: 1fr; padding: 2rem 0; }
-      nav .links { display: none; }
+    .brand img {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
     }
-    .hero h1 {
-      font-family: "Instrument Serif", Georgia, serif;
-      font-weight: 400;
-      font-size: clamp(2.4rem, 5vw, 3.4rem);
-      line-height: 1.12;
+    .brand span {
+      font-weight: 700;
+      font-size: 1.15rem;
       letter-spacing: -0.02em;
-      color: var(--navy);
     }
-    .hero h1 em { font-style: italic; color: var(--teal-dark); }
-    .hero p.lead { margin-top: 1rem; color: var(--muted); font-size: 1.1rem; max-width: 34rem; }
-    .cta { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.75rem; }
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin: 0 0 0.65rem;
+      line-height: 1.25;
+    }
+    .lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 36em;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.35rem;
+    }
     .btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      padding: 0.7rem 1.15rem; border-radius: 8px; font-weight: 600; font-size: 0.95rem;
-      text-decoration: none; border: 1px solid transparent;
+      display: inline-block;
+      padding: 0.55rem 0.95rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border: 1px solid transparent;
     }
-    .btn-primary { background: var(--teal); color: #fff; }
-    .btn-primary:hover { background: var(--teal-dark); text-decoration: none; color: #fff; }
-    .btn-ghost { background: var(--white); color: var(--ink); border-color: var(--line); }
-    .btn-ghost:hover { border-color: #c5ccd8; text-decoration: none; color: var(--ink); }
-    .hero-card {
-      background: var(--paper); border: 1px solid var(--line); border-radius: 16px;
-      padding: 1.5rem; text-align: center;
+    .btn-dark {
+      background: var(--btn);
+      color: var(--btn-fg);
     }
-    .hero-card img.mark { width: 180px; max-width: 70%; height: auto; margin: 0.5rem auto 1rem; display: block; }
-    .hero-card .tag { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+    .btn-dark:hover { background: #333; color: #fff; }
+    .btn-light {
+      background: var(--card);
+      color: var(--fg);
+      border-color: var(--border);
+    }
+    .btn-light:hover { border-color: #bbb; color: var(--fg); }
 
-    section { padding: 2rem 0 2.5rem; }
-    section h2 {
-      font-family: "Instrument Serif", Georgia, serif;
-      font-size: 1.85rem; font-weight: 400; color: var(--navy); margin-bottom: 0.35rem;
+    h2 {
+      font-size: 1.2rem;
+      margin: 2.25rem 0 0.75rem;
+      letter-spacing: -0.02em;
     }
-    section .sub { color: var(--muted); margin-bottom: 1.5rem; }
+    p { margin: 0 0 0.85rem; color: var(--muted); }
+    p.note { font-size: 0.92rem; }
 
-    .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-    @media (max-width: 780px) { .grid3 { grid-template-columns: 1fr; } }
-    .card {
-      border: 1px solid var(--line); border-radius: 12px; padding: 1.25rem 1.3rem;
-      background: var(--white);
+    .apps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
     }
-    .card h3 { font-size: 1.05rem; margin-bottom: 0.4rem; }
-    .card p { color: var(--muted); font-size: 0.95rem; }
-    .card .num {
-      width: 28px; height: 28px; border-radius: 8px; background: #e6f7f5; color: var(--teal-dark);
-      display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem;
-      margin-bottom: 0.75rem;
+    @media (min-width: 640px) {
+      .apps { grid-template-columns: 1fr 1fr 1fr; }
     }
-
-    table.specs {
-      width: 100%; border-collapse: collapse; font-size: 0.95rem;
-      border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
-    }
-    table.specs th, table.specs td { text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--line); }
-    table.specs th { width: 40%; color: var(--muted); font-weight: 500; background: var(--paper); }
-    table.specs tr:last-child td, table.specs tr:last-child th { border-bottom: none; }
-
-    .apps { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
-    @media (max-width: 780px) { .apps { grid-template-columns: 1fr; } }
     .app {
-      border: 1px solid var(--line); border-radius: 12px; padding: 1.25rem;
-      display: flex; flex-direction: column; gap: 0.5rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.05rem;
     }
-    .app strong { font-size: 1.05rem; }
-    .app span { color: var(--muted); font-size: 0.92rem; flex: 1; }
-    .app code {
-      display: block; margin-top: 0.5rem; font-size: 0.78rem; background: var(--paper);
-      padding: 0.55rem 0.65rem; border-radius: 6px; color: #334; overflow-x: auto;
+    .app h3 {
+      margin: 0 0 0.35rem;
+      font-size: 1rem;
     }
+    .app p {
+      margin: 0;
+      font-size: 0.92rem;
+    }
+    .app .prog {
+      margin-top: 0.65rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.8rem;
+      color: #333;
+      background: #f0f0f0;
+      padding: 0.3rem 0.45rem;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    ol.steps {
+      margin: 0.5rem 0 1rem;
+      padding-left: 1.3rem;
+      color: var(--muted);
+    }
+    ol.steps li { margin: 0.35rem 0; }
+    ol.steps code, p code, td code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.86em;
+      background: #eee;
+      padding: 0.1rem 0.35rem;
+      border-radius: 3px;
+      color: #222;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.6rem 0.85rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    th {
+      width: 38%;
+      font-weight: 600;
+      color: var(--muted);
+      background: #f5f5f5;
+    }
+    tr:last-child th, tr:last-child td { border-bottom: none; }
+
+    .links {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0 0;
+    }
+    .links li {
+      padding: 0.45rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .links li:last-child { border-bottom: none; }
 
     footer {
-      margin-top: 2rem; padding: 2rem 0; border-top: 1px solid var(--line);
-      color: var(--muted); font-size: 0.88rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
+      margin-top: 2.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.88rem;
+      color: #777;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <nav>
-      <a class="brand" href="./">
-        <img src="assets/icon.png" alt="" width="36" height="36" />
-        Egalitarianism
-      </a>
-      <div class="links">
-        <a href="https://github.com/Egalitarianism-EGA/ega">Software</a>
-        <a href="https://github.com/Egalitarianism-EGA/ega/blob/main/docs/ega/getting-started.md">Get started</a>
-        <a href="https://github.com/Egalitarianism-EGA/ega-miners">Mining</a>
-        <a href="https://github.com/Egalitarianism-EGA/ega/blob/main/docs/ega/WHITEPAPER.md">Whitepaper</a>
+    <header>
+      <div class="brand">
+        <img src="assets/icon.png" width="48" height="48" alt="EGA" />
+        <span>Egalitarianism</span>
       </div>
-    </nav>
-
-    <header class="hero">
-      <div>
-        <h1>Money anyone can <em>mine</em>.</h1>
-        <p class="lead">
-          Egalitarianism (EGA) is a fair-launch proof-of-work network.
-          No premine. CPU, GPU, or low-power devices — three algorithms, one chain.
-        </p>
-        <div class="cta">
-          <a class="btn btn-primary" href="https://github.com/Egalitarianism-EGA/ega">Download / source</a>
-          <a class="btn btn-ghost" href="https://github.com/Egalitarianism-EGA/ega/blob/main/docs/ega/getting-started.md">Install &amp; run a node</a>
-        </div>
-      </div>
-      <div class="hero-card">
-        <div class="tag">Egalitarianism</div>
-        <img class="mark" src="assets/mark.png" alt="Egalitarianism mark" />
-        <p style="color:var(--muted);font-size:0.9rem;">EGA · multi-algo PoW · 21B supply</p>
+      <h1>A fair-launch coin you can actually run.</h1>
+      <p class="lead">
+        EGA is multi-algo proof-of-work: RandomX, Verthash, and YespowerEGA.
+        No premine. Anyone with a normal PC, GPU, or low-power machine can participate.
+      </p>
+      <div class="actions">
+        <a class="btn btn-dark" href="https://github.com/Egalitarianism-EGA/ega">Get the software</a>
+        <a class="btn btn-light" href="https://github.com/Egalitarianism-EGA/ega/blob/main/docs/ega/getting-started.md">Getting started</a>
       </div>
     </header>
 
-    <section>
-      <h2>What you can run</h2>
-      <p class="sub">Real applications from the Core project — wallet, node, and mining.</p>
-      <div class="apps">
-        <div class="app">
-          <strong>Wallet</strong>
-          <span>Desktop app to receive and send EGA. Uses the same software as the full node.</span>
-          <code>ega-qt</code>
-        </div>
-        <div class="app">
-          <strong>Node</strong>
-          <span>Keeps a copy of the chain and talks to peers. Leave it running when you can.</span>
-          <code>egad</code>
-        </div>
-        <div class="app">
-          <strong>Mining</strong>
-          <span>CPU: RandomX / YespowerEGA. GPU: Verthash. Solo now; pool when operators deploy one.</span>
-          <code>ega-cli · VerthashMiner</code>
-        </div>
+    <h2>The three applications</h2>
+    <p>Same project, three jobs — like a normal crypto stack.</p>
+    <div class="apps">
+      <div class="app">
+        <h3>Wallet</h3>
+        <p>Receive and send EGA. Desktop GUI or command line.</p>
+        <span class="prog">ega-qt · ega-cli</span>
       </div>
-    </section>
-
-    <section>
-      <h2>How a normal network works</h2>
-      <p class="sub">Two (or two hundred) miners do not “share one PC” — they connect to the same chain.</p>
-      <div class="grid3">
-        <div class="card">
-          <div class="num">1</div>
-          <h3>Nodes sync</h3>
-          <p>Peers connect on port 20201 and share blocks. Everyone works on the same tip.</p>
-        </div>
-        <div class="card">
-          <div class="num">2</div>
-          <h3>Miners race</h3>
-          <p>Each miner builds on the latest block. Whoever finds the next valid block wins that reward.</p>
-        </div>
-        <div class="card">
-          <div class="num">3</div>
-          <h3>Optional pool</h3>
-          <p>A pool splits rewards by work. Useful later; not required for a live chain.</p>
-        </div>
+      <div class="app">
+        <h3>Node</h3>
+        <p>Holds the chain, talks to peers on port 20201.</p>
+        <span class="prog">egad</span>
       </div>
-    </section>
-
-    <section>
-      <h2>Network parameters</h2>
-      <p class="sub">Fixed at genesis. Full detail in the whitepaper and params doc.</p>
-      <table class="specs">
-        <tr><th>Max supply</th><td>21,000,000,000 EGA</td></tr>
-        <tr><th>Block time</th><td>~60 seconds</td></tr>
-        <tr><th>Subsidy</th><td>50,000 EGA, halving every 210,000 blocks</td></tr>
-        <tr><th>Premine</th><td>None</td></tr>
-        <tr><th>Algorithms</th><td>RandomX · Verthash · YespowerEGA</td></tr>
-        <tr><th>P2P / RPC</th><td>20201 / 20202</td></tr>
-      </table>
-    </section>
-
-    <section>
-      <h2>Get the software</h2>
-      <p class="sub">Source and guides on GitHub. Prebuilt installers will be published on Releases as they ship.</p>
-      <div class="cta">
-        <a class="btn btn-primary" href="https://github.com/Egalitarianism-EGA/ega">Core repository</a>
-        <a class="btn btn-ghost" href="https://github.com/Egalitarianism-EGA/ega-miners">Mining hub</a>
-        <a class="btn btn-ghost" href="https://github.com/Egalitarianism-EGA/ega-wallet">Wallet notes</a>
-        <a class="btn btn-ghost" href="https://github.com/Egalitarianism-EGA/ega-verthash-miner">GPU mining</a>
+      <div class="app">
+        <h3>Miner</h3>
+        <p>CPU or GPU. Solo, or many people on the same network.</p>
+        <span class="prog">CPU · GPU Verthash</span>
       </div>
-    </section>
+    </div>
+
+    <h2>Install on Linux</h2>
+    <ol class="steps">
+      <li>Clone <a href="https://github.com/Egalitarianism-EGA/ega">Egalitarianism-EGA/ega</a></li>
+      <li>Run <code>bash scripts/easy-install-linux.sh</code></li>
+      <li>Optional menu apps: <code>bash scripts/install-desktop-apps.sh</code>
+        (Wallet, Node, Miner)</li>
+      <li>Start a node: <code>bash scripts/easy-start.sh</code></li>
+      <li>Get an address: <code>bash scripts/easy-wallet.sh</code></li>
+      <li>Mine: <code>bash scripts/easy-mine.sh randomx</code></li>
+    </ol>
+    <p class="note">
+      Full guide:
+      <a href="https://github.com/Egalitarianism-EGA/ega/blob/main/docs/ega/getting-started.md">getting-started.md</a>
+    </p>
+
+    <h2>Solo mining vs many miners</h2>
+    <p>
+      <strong>Solo:</strong> you run a node and mine. If you find a block, that reward is yours.
+    </p>
+    <p>
+      <strong>Same network (normal blockchain):</strong> two or more people each run a node,
+      connect with <code>addnode=IP:20201</code>, and mine. They share one chain tip.
+      Whoever finds the next block keeps that block — same idea as Bitcoin.
+    </p>
+    <p>
+      <strong>Pool (optional later):</strong> splits rewards by work. Not required to launch.
+    </p>
+    <p class="note">
+      Local test of two miners on one machine:
+      <code>bash scripts/two-node-mining-demo.sh</code><br />
+      Friend setup:
+      <a href="https://github.com/Egalitarianism-EGA/ega/blob/main/docs/ega/network-mining.md">network-mining.md</a>
+    </p>
+
+    <h2>Network parameters</h2>
+    <table>
+      <tr><th>Max supply</th><td>21,000,000,000 EGA</td></tr>
+      <tr><th>Decimals</th><td>8</td></tr>
+      <tr><th>Block time</th><td>~60 seconds</td></tr>
+      <tr><th>Subsidy</th><td>50,000 EGA, halving every 210,000 blocks</td></tr>
+      <tr><th>Premine</th><td>None</td></tr>
+      <tr><th>PoW</th><td>RandomX · Verthash · YespowerEGA (MultiShield)</td></tr>
+      <tr><th>P2P / RPC</th><td>20201 / 20202</td></tr>
+    </table>
+
+    <h2>Repos</h2>
+    <ul class="links">
+      <li><a href="https://github.com/Egalitarianism-EGA/ega">Core (node, wallet, mining)</a></li>
+      <li><a href="https://github.com/Egalitarianism-EGA/ega-miners">Mining hub</a></li>
+      <li><a href="https://github.com/Egalitarianism-EGA/ega-verthash-miner">GPU Verthash miner</a></li>
+      <li><a href="https://github.com/Egalitarianism-EGA/ega-wallet">Wallet notes</a></li>
+      <li><a href="https://github.com/Egalitarianism-EGA/ega-homelab">Home lab (one PC)</a></li>
+      <li><a href="https://github.com/Egalitarianism-EGA/ega/blob/main/docs/ega/WHITEPAPER.md">Whitepaper</a></li>
+    </ul>
 
     <footer>
       <span>Egalitarianism (EGA)</span>
-      <span>Open source · MIT · Experimental software</span>
+      <span>Open source · experimental</span>
     </footer>
   </div>
 </body>
