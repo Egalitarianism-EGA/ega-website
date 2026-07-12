@@ -1,13 +1,22 @@
 # Egalitarianism website
 
-Static landing page for **Egalitarianism (EGA)**.
+Static site for **Egalitarianism (EGA)** — multi-page, no build step.
 
 **Live:** https://egalitarianism-ega.github.io/ega-website/
 
-## Edit
+## Pages
 
-Change `index.html`, commit, push to `main`. GitHub Pages updates in a minute or two.
+| File | Content |
+|------|---------|
+| `index.html` | Home |
+| `start.html` | Install / wallet / node |
+| `mine.html` | Solo, multi-node, pool overview |
+| `explorer.html` | How to run the explorer |
+| `pool.html` | Pool ports and setup |
+| `whitepaper.html` | Whitepaper (on-site) |
+| `specs.html` | Network parameters |
 
-## Enable Pages (if 404)
+## Deploy
 
-Repo **Settings → Pages → Deploy from a branch → main / (root)**.
+Push to `main`. GitHub Pages: branch `main`, folder `/` (root).
+`.nojekyll` is present so files are served as-is.

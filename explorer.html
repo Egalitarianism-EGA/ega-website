@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Explorer — Egalitarianism</title>
+  <link rel="icon" href="assets/icon.png" type="image/png" />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <a class="brand" href="./">
+        <img src="assets/icon.png" width="32" height="32" alt="" />
+        Egalitarianism
+      </a>
+      <nav>
+        <a href="start.html">Start</a>
+        <a href="mine.html">Mine</a>
+        <a class="active" href="explorer.html">Explorer</a>
+        <a href="pool.html">Pool</a>
+        <a href="whitepaper.html">Whitepaper</a>
+        <a href="specs.html">Specs</a>
+      </nav>
+    </div>
+
+    <h1>Block explorer</h1>
+    <p class="lead">
+      Browse height, blocks, and transactions against a live <code>egad</code> node.
+    </p>
+
+    <div class="cards two">
+      <div class="card">
+        <h3>Run it yourself (free)</h3>
+        <p>Lightweight explorer ships with Core. Talks to your local node over RPC.</p>
+      </div>
+      <div class="card">
+        <h3>Public URL</h3>
+        <p id="public-note">Operators can expose it with Tailscale or a tunnel. When a public URL is published, it will be linked here.</p>
+      </div>
+    </div>
+
+    <h2>Start explorer (Linux)</h2>
+    <pre><code># node with tx index (once)
+# add to ~/.ega/ega.conf:  txindex=1
+# then reindex if the chain already exists without txindex:
+#   egad -reindex-chainstate   # or full -reindex if needed
+
+bash scripts/easy-start.sh
+bash scripts/ega-explorer.sh
+# open http://127.0.0.1:8088</code></pre>
+
+    <h2>What you get</h2>
+    <ul>
+      <li>Chain height, best hash, difficulty summary</li>
+      <li>Latest blocks</li>
+      <li>Lookup block by height or hash</li>
+      <li>Lookup transaction by txid (needs <code>txindex=1</code>)</li>
+    </ul>
+
+    <div class="note">
+      This site is static (GitHub Pages). The explorer is a small app you run next to
+      <code>egad</code> — same idea as most early coin explorers before someone hosts a public one.
+    </div>
+
+    <h2>Heavier option</h2>
+    <p>
+      Production multi-coin stack:
+      <a href="https://github.com/Egalitarianism-EGA/ega-blockbook">ega-blockbook</a>
+      configs for <a href="https://github.com/trezor/blockbook">Blockbook</a>.
+    </p>
+
+    <footer>
+      <span><a href="./">← Home</a></span>
+      <span>Egalitarianism</span>
+    </footer>
+  </div>
+</body>
+</html>

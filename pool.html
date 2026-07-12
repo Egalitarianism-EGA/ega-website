@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mining pool — Egalitarianism</title>
+  <link rel="icon" href="assets/icon.png" type="image/png" />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <a class="brand" href="./">
+        <img src="assets/icon.png" width="32" height="32" alt="" />
+        Egalitarianism
+      </a>
+      <nav>
+        <a href="start.html">Start</a>
+        <a href="mine.html">Mine</a>
+        <a href="explorer.html">Explorer</a>
+        <a class="active" href="pool.html">Pool</a>
+        <a href="whitepaper.html">Whitepaper</a>
+        <a href="specs.html">Specs</a>
+      </nav>
+    </div>
+
+    <h1>Mining pool</h1>
+    <p class="lead">
+      Shared rewards when several miners want payouts proportional to work.
+      Not required for a live multi-node network — only if you want a stratum pool.
+    </p>
+
+    <h2>Suggested ports</h2>
+    <table>
+      <tr><th>RandomX</th><td>stratum port <code>3333</code></td></tr>
+      <tr><th>Verthash</th><td>stratum port <code>3334</code></td></tr>
+      <tr><th>YespowerEGA</th><td>stratum port <code>3335</code></td></tr>
+      <tr><th>Pool API</th><td><code>4000</code> (Miningcore default in our example)</td></tr>
+    </table>
+
+    <h2>Run on your PC (Docker)</h2>
+    <p>From Core (after <code>egad</code> is running with wallet + RPC):</p>
+    <pre><code>cd ega-homelab   # or scripts path in Core
+bash scripts/start-pool-stack.sh</code></pre>
+    <p>
+      Full configs:
+      <a href="https://github.com/Egalitarianism-EGA/ega-miningcore">ega-miningcore</a>
+      · home lab:
+      <a href="https://github.com/Egalitarianism-EGA/ega-homelab">ega-homelab</a>
+    </p>
+
+    <div class="note">
+      Miningcore must be built/configured with coin profiles that match EGA’s RPC and algos.
+      RandomX is the most common first pool port. Verthash and YespowerEGA need matching
+      miner + pool algorithm support — start with RandomX if you are ironing things out.
+    </div>
+
+    <h2>Without a pool</h2>
+    <p>
+      Friends can still mine the same chain by connecting nodes
+      (<code>addnode=IP:20201</code>) and solo-mining. See <a href="mine.html">Mining</a>.
+    </p>
+
+    <footer>
+      <span><a href="./">← Home</a></span>
+      <span>Egalitarianism</span>
+    </footer>
+  </div>
+</body>
+</html>

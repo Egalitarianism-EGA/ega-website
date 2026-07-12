@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mining — Egalitarianism</title>
+  <link rel="icon" href="assets/icon.png" type="image/png" />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <a class="brand" href="./">
+        <img src="assets/icon.png" width="32" height="32" alt="" />
+        Egalitarianism
+      </a>
+      <nav>
+        <a href="start.html">Start</a>
+        <a class="active" href="mine.html">Mine</a>
+        <a href="explorer.html">Explorer</a>
+        <a href="pool.html">Pool</a>
+        <a href="whitepaper.html">Whitepaper</a>
+        <a href="specs.html">Specs</a>
+      </nav>
+    </div>
+
+    <h1>Mining</h1>
+    <p class="lead">Three algorithms. Solo, multi-node, or pool.</p>
+
+    <h2>Algorithms</h2>
+    <table>
+      <tr><th>RandomX</th><td>Modern CPUs — <code>bash scripts/easy-mine.sh randomx</code></td></tr>
+      <tr><th>YespowerEGA</th><td>Weaker CPUs / Pi — <code>bash scripts/easy-mine.sh yespower-ega</code></td></tr>
+      <tr><th>Verthash</th><td>GPUs — <a href="https://github.com/Egalitarianism-EGA/ega-verthash-miner">ega-verthash-miner</a></td></tr>
+    </table>
+
+    <h2>Solo</h2>
+    <p>You run a node and mine to your wallet. Blocks you find are yours (after coinbase maturity).</p>
+    <pre><code>bash scripts/easy-start.sh
+bash scripts/easy-mine.sh randomx</code></pre>
+
+    <h2>Multi-node (same chain)</h2>
+    <p>
+      Two or more people each run <code>egad</code>, connect as peers, and mine.
+      Same chain tip; each keeps the blocks they find.
+    </p>
+    <p>Seed operator: leave <code>egad</code> running, port <strong>20201</strong> reachable.</p>
+    <p>Everyone else, in <code>~/.ega/ega.conf</code>:</p>
+    <pre><code>addnode=SEED_IP:20201</code></pre>
+    <p>Local test on one PC:</p>
+    <pre><code>bash scripts/two-node-mining-demo.sh</code></pre>
+
+    <h2>Pool (shared rewards)</h2>
+    <p>
+      A pool splits block rewards by work. See the <a href="pool.html">pool page</a>
+      for setup and ports.
+    </p>
+
+    <h2>Continuous solo loop</h2>
+    <pre><code>ADDR=$(./src/ega-cli getnewaddress)
+while true; do
+  ./src/ega-cli generatetoaddress 1 "$ADDR" 10000000 randomx || sleep 1
+done</code></pre>
+
+    <footer>
+      <span><a href="./">← Home</a></span>
+      <span>Egalitarianism</span>
+    </footer>
+  </div>
+</body>
+</html>

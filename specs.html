@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Network specs — Egalitarianism</title>
+  <link rel="icon" href="assets/icon.png" type="image/png" />
+  <link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <a class="brand" href="./">
+        <img src="assets/icon.png" width="32" height="32" alt="" />
+        Egalitarianism
+      </a>
+      <nav>
+        <a href="start.html">Start</a>
+        <a href="mine.html">Mine</a>
+        <a href="explorer.html">Explorer</a>
+        <a href="pool.html">Pool</a>
+        <a href="whitepaper.html">Whitepaper</a>
+        <a class="active" href="specs.html">Specs</a>
+      </nav>
+    </div>
+
+    <h1>Network specs</h1>
+    <p class="lead">Frozen parameters for mainnet. Do not change casually.</p>
+
+    <h2>Economy</h2>
+    <table>
+      <tr><th>Max supply</th><td>21,000,000,000 EGA</td></tr>
+      <tr><th>Decimals</th><td>8</td></tr>
+      <tr><th>Subsidy</th><td>50,000 EGA / block</td></tr>
+      <tr><th>Halving</th><td>Every 210,000 blocks</td></tr>
+      <tr><th>Block time</th><td>~60 seconds</td></tr>
+      <tr><th>Premine</th><td>0</td></tr>
+    </table>
+
+    <h2>Proof of work</h2>
+    <table>
+      <tr><th>Algorithms</th><td>RandomX · Verthash · YespowerEGA</td></tr>
+      <tr><th>Difficulty</th><td>MultiShield from height 0</td></tr>
+      <tr><th>YespowerEGA</th><td>N=2048, r=32, pers <code>YespowerEGA</code></td></tr>
+      <tr><th>Verthash dataset</th><td>256 MiB · tag <code>EGA-Verthash-v1</code></td></tr>
+    </table>
+
+    <h2>Network</h2>
+    <table>
+      <tr><th>P2P</th><td>20201</td></tr>
+      <tr><th>RPC</th><td>20202</td></tr>
+      <tr><th>bech32</th><td>ega</td></tr>
+      <tr><th>Magic</th><td>e4 47 41 01</td></tr>
+      <tr><th>Data dir</th><td>~/.ega</td></tr>
+      <tr><th>Config</th><td>ega.conf</td></tr>
+      <tr><th>Genesis</th><td><code>943c83429a935b34fb988508440ec8702d217525865f3eea7076d64b4592eda5</code></td></tr>
+    </table>
+
+    <footer>
+      <span><a href="./">← Home</a></span>
+      <span>Egalitarianism</span>
+    </footer>
+  </div>
+</body>
+</html>
