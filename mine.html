@@ -26,15 +26,16 @@
 
     <div class="page-head">
       <h1>Mine EGA</h1>
-      <p>Three algorithms. Mine alone, with friends on the same network, or through a pool.</p>
+      <p>Four algorithms (MultiShield-4). Mine alone, with friends on the same network, or through a pool.</p>
     </div>
 
     <section>
       <h2>Pick your hardware</h2>
       <table>
-        <tr><th>RandomX</th><td>Modern CPUs — best everyday option</td></tr>
-        <tr><th>YespowerEGA</th><td>Weaker CPUs, older machines, Pi-class devices</td></tr>
-        <tr><th>Verthash</th><td>GPUs — see the GPU miner guide on GitHub</td></tr>
+        <tr><th>RandomX</th><td>Modern CPUs / laptops</td></tr>
+        <tr><th>YespowerEGA</th><td>Weaker CPUs, phones, Pi</td></tr>
+        <tr><th>Verthash</th><td>Consumer GPUs</td></tr>
+        <tr><th>Scrypt</th><td>Hard door (ASIC / capital market) — MultiShield security anchor</td></tr>
       </table>
     </section>
 
@@ -43,7 +44,8 @@
       <p class="sub">You run a node and mine to your own wallet. Blocks you find pay you.</p>
       <pre><code>bash scripts/easy-start.sh
 bash scripts/easy-mine.sh randomx
-# or: bash scripts/easy-mine.sh yespower-ega</code></pre>
+# or: yespower-ega | scrypt
+# GPU: ega-verthash-miner</code></pre>
       <p class="sub">GPU: <a href="https://github.com/Egalitarianism-EGA/ega-verthash-miner">ega-verthash-miner</a></p>
     </section>
 
