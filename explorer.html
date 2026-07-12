@@ -26,30 +26,24 @@
 
     <div class="page-head">
       <h1>Block explorer</h1>
-      <p>
-        See height, blocks, and transactions — the same job blockchain explorers do for BTC and LTC.
-      </p>
+      <p>Live chain view from the operator node (early network).</p>
     </div>
 
     <section>
       <div class="grid2">
         <div class="card">
-          <h3>Open the explorer</h3>
-          <p>If you run a node on this PC, the explorer is available locally:</p>
-          <p style="margin-top:.75rem"><a class="btn btn-primary" href="http://127.0.0.1:8088" target="_blank" rel="noopener">http://127.0.0.1:8088</a></p>
-          <p class="sub" style="margin-top:.85rem">Start it with: <code>bash scripts/ega-explorer.sh</code></p>
+          <h3>Public explorer</h3>
+          <p>Stable as long as the operator PC + port <b>8088</b> stay open:</p>
+          <p style="margin-top:.75rem">
+            <a class="btn btn-primary" href="http://105.225.100.58:8088/" target="_blank" rel="noopener">http://105.225.100.58:8088/</a>
+          </p>
+          <p class="sub" style="margin-top:.85rem">Requires router port-forward TCP 8088 → this PC. Not a Cloudflare temporary URL.</p>
         </div>
         <div class="card">
-          <h3>Public explorer</h3>
-          <p>
-            Early public tunnel (operator PC — may change when the tunnel restarts):
-          </p>
-          <p style="margin-top:.75rem">
-            <a class="btn btn-primary" id="public-url"
-               href="https://deposit-represented-seem-wrestling.trycloudflare.com"
-               target="_blank" rel="noopener">Open public explorer</a>
-          </p>
-          <p class="sub" style="margin-top:.85rem">Stable hostname later; for now this is a Cloudflare quick tunnel.</p>
+          <h3>Local</h3>
+          <p>On the machine running the node:</p>
+          <p style="margin-top:.75rem"><code>http://127.0.0.1:8088</code></p>
+          <p class="sub" style="margin-top:.85rem"><code>bash scripts/ega-explorer.sh</code></p>
         </div>
       </div>
     </section>
@@ -57,14 +51,11 @@
     <section>
       <h2>What it shows</h2>
       <ul class="steps">
-        <li>Current height and best block from <em>your</em> node</li>
-        <li>Recent blocks with algo, reward, difficulty</li>
-        <li>Issued supply and coinbase maturity note (rewards immature for 8 confs)</li>
-        <li>Transaction lookup when <code>txindex=1</code></li>
+        <li>Height, peers, issued supply</li>
+        <li>Per-algo difficulty and recent blocks</li>
+        <li>Est. hashrate from recent blocks (not “miners online”)</li>
+        <li>Coinbase maturity note (8 confs on early chain)</li>
       </ul>
-      <div class="note" style="margin-top:1rem">
-        Local explorer is not a global public chain view until you have peers and a published URL.
-      </div>
     </section>
 
     <footer>
