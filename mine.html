@@ -10,65 +10,39 @@
 <body>
   <div class="wrap">
     <header class="nav">
-      <a class="brand" href="./">
-        <img src="assets/icon.png" width="40" height="40" alt="EGA" />
-        <span>Egalitarianism</span>
-      </a>
+      <a class="brand" href="./"><img src="assets/icon.png" width="40" height="40" alt="EGA" /><span>Egalitarianism</span></a>
       <nav class="nav-links">
         <a href="download.html">Download</a>
         <a class="on" href="mine.html">Mine</a>
         <a href="explorer.html">Explorer</a>
         <a href="pool.html">Pool</a>
+        <a href="wallet.html">Wallet</a>
         <a href="roadmap.html">Roadmap</a>
-        <a href="whitepaper.html">Whitepaper</a>
       </nav>
     </header>
-
     <div class="page-head">
       <h1>Mine EGA</h1>
-      <p>Four algorithms. Solo on any full node, or pool for Verthash (GPU) and Scrypt.</p>
+      <p>Four algorithms so weak phones and strong GPUs share one chain.</p>
     </div>
-
     <section>
-      <h2>Pick your hardware</h2>
       <table>
-        <tr><th>RandomX</th><td>Modern CPUs — <strong>solo</strong> with the node</td></tr>
-        <tr><th>YespowerEGA</th><td>Weaker CPUs / Pi — <strong>solo</strong></td></tr>
-        <tr><th>Verthash</th><td>GPU — <a href="pool.html">pool</a> <code>stratum+tcp://105.225.100.58:3334</code></td></tr>
-        <tr><th>Scrypt</th><td>CPU/ASIC path — <a href="pool.html">pool</a> <code>stratum+tcp://105.225.100.58:3336</code></td></tr>
+        <tr><th>RandomX</th><td>CPU laptop — solo now · join network via seed</td></tr>
+        <tr><th>YespowerEGA</th><td>Phone / weak CPU — solo on light node</td></tr>
+        <tr><th>Verthash</th><td>GPU — shared pool <code>:3334</code> or solo</td></tr>
+        <tr><th>Scrypt</th><td>Shared pool <code>:3336</code> or solo</td></tr>
       </table>
     </section>
-
     <section>
-      <h2>1. Get the software</h2>
-      <p class="sub"><a href="download.html">Download</a> Linux v0.2.0 or build from source. Run a full node so you stay on the same chain.</p>
+      <h2>1. Run a node (PC or Android)</h2>
       <pre><code>egad -daemon
-ega-cli getnewaddress</code></pre>
+# Android Termux: pruned light node — docs/ega/ANDROID-LIGHT-NODE.md</code></pre>
+      <pre><code>addnode=105.225.100.58:20201</code></pre>
     </section>
-
     <section>
-      <h2>2. Join the network</h2>
-      <pre><code># ~/.ega/ega.conf
-addnode=105.225.100.58:20201</code></pre>
-      <p class="sub">Seed is the community bootstrap node (home operator). Port <b>20201</b> must be reachable.</p>
+      <h2>2. Solo or shared</h2>
+      <p class="sub"><a href="pool.html">Pool page</a> explains both. Dashboard: <a href="http://105.225.100.58:8089/">mining UI</a></p>
     </section>
-
-    <section>
-      <h2>3. Solo mine (any algo)</h2>
-      <pre><code>ega-cli generatetoaddress 1 $(ega-cli getnewaddress) 10000000 randomx
-# yespower-ega | verthash | scrypt</code></pre>
-      <p class="sub">Or helpers in the release tarball: <code>scripts/easy-mine.sh randomx</code></p>
-    </section>
-
-    <section>
-      <h2>4. Pool mine (Verthash / Scrypt)</h2>
-      <p class="sub">See <a href="pool.html">Pool</a> for stratum hosts and GPU flags.</p>
-    </section>
-
-    <footer>
-      <span><a href="./">← Home</a></span>
-      <span>Egalitarianism</span>
-    </footer>
+    <footer><span><a href="./">← Home</a></span><span>Egalitarianism</span></footer>
   </div>
 </body>
 </html>

@@ -10,61 +10,49 @@
 <body>
   <div class="wrap">
     <header class="nav">
-      <a class="brand" href="./">
-        <img src="assets/icon.png" width="40" height="40" alt="EGA" />
-        <span>Egalitarianism</span>
-      </a>
+      <a class="brand" href="./"><img src="assets/icon.png" width="40" height="40" alt="EGA" /><span>Egalitarianism</span></a>
       <nav class="nav-links">
         <a href="download.html">Download</a>
         <a href="mine.html">Mine</a>
         <a href="explorer.html">Explorer</a>
         <a class="on" href="pool.html">Pool</a>
+        <a href="wallet.html">Wallet</a>
         <a href="roadmap.html">Roadmap</a>
-        <a href="whitepaper.html">Whitepaper</a>
       </nav>
     </header>
-
     <div class="page-head">
-      <h1>Mining pool</h1>
-      <p>Point a miner at stratum, use your EGA address as username, get paid shares on Verthash and Scrypt.</p>
+      <h1>Mine: solo or shared</h1>
+      <p>Same chain. Pick how you want to earn.</p>
     </div>
-
     <section>
-      <h2>Live stratum</h2>
+      <div class="grid2">
+        <div class="card">
+          <h3>Solo</h3>
+          <p>You run a node. You find a block → you keep the full reward.</p>
+          <p class="sub">All 4 algorithms work solo (including Android light nodes).</p>
+        </div>
+        <div class="card">
+          <h3>Shared (pool)</h3>
+          <p>Many miners together. Steadier payouts by shares.</p>
+          <p class="sub">Live: Verthash + Scrypt. RandomX + YespowerEGA: solo now; shared next.</p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2>Pool dashboard</h2>
+      <p><a class="btn btn-primary" href="http://105.225.100.58:8089/" target="_blank" rel="noopener">Open mining UI</a></p>
+      <p class="sub" style="margin-top:.75rem">Pages: Solo · Shared · Start · Blocks · Wallet lookup</p>
+    </section>
+    <section>
+      <h2>Shared stratum (live)</h2>
       <table>
         <tr><th>Verthash (GPU)</th><td><code>stratum+tcp://105.225.100.58:3334</code></td></tr>
         <tr><th>Scrypt</th><td><code>stratum+tcp://105.225.100.58:3336</code></td></tr>
-        <tr><th>Username</th><td>Your EGA wallet address (starts with <code>E</code>)</td></tr>
+        <tr><th>Username</th><td>Your EGA address</td></tr>
         <tr><th>Password</th><td><code>x</code></td></tr>
       </table>
-      <div class="note" style="margin-top:1rem">
-        Operator must leave the pool online and forward ports <b>3334</b> / <b>3336</b> for the internet to reach them.
-        Dashboard (human UI): <code>http://105.225.100.58:8089/</code> when port 8089 is open — or ask the operator.
-      </div>
     </section>
-
-    <section>
-      <h2>GPU Verthash example</h2>
-      <pre><code>VerthashMiner -a verthash \
-  -o stratum+tcp://105.225.100.58:3334 \
-  -u YOUR_EGA_ADDRESS -p x \
-  --all-cl-devices -f ega-verthash.dat \
-  --no-verthash-data_verification</code></pre>
-      <p class="sub">Dataset: <a href="https://github.com/Egalitarianism-EGA/ega-verthash-miner">ega-verthash-miner</a> (EGA 256 MiB file, not stock Vertcoin).</p>
-    </section>
-
-    <section>
-      <h2>CPU algos (solo for now)</h2>
-      <p class="sub">
-        <strong>RandomX</strong> and <strong>YespowerEGA</strong> are mined solo with the node
-        (<code>easy-mine.sh</code>). Full stratum share-verify for those two is not in stock Miningcore yet.
-      </p>
-    </section>
-
-    <footer>
-      <span><a href="./">← Home</a></span>
-      <span>Egalitarianism</span>
-    </footer>
+    <footer><span><a href="./">← Home</a></span><span>Egalitarianism</span></footer>
   </div>
 </body>
 </html>
