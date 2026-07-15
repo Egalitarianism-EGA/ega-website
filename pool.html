@@ -6,11 +6,26 @@
   <title>Mining pool — Egalitarianism</title>
   <link rel="icon" href="assets/icon.png" type="image/png" />
   <link rel="stylesheet" href="assets/site.css" />
+  <style>
+    .pool-top { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:.65rem; margin:1rem 0 1.25rem; }
+    .pool-top .box { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:.75rem .9rem; }
+    .pool-top .l { font-size:.72rem; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); font-weight:700; }
+    .pool-top .v { font-size:1.05rem; font-weight:800; margin-top:.2rem; word-break:break-all; }
+    .three { display:grid; grid-template-columns:1fr 1fr 1fr; gap:.85rem; margin:1.25rem 0; }
+    @media(max-width:800px){ .three { grid-template-columns:1fr; } }
+    .three .card h3 { margin-bottom:.5rem; }
+    .three ul { margin:.4rem 0 0 1.1rem; color:var(--muted); font-size:.92rem; }
+    .three li { margin:.3rem 0; }
+    table.algo td code { font-size:.82rem; }
+  </style>
 </head>
 <body>
   <div class="wrap">
     <header class="nav">
-      <a class="brand" href="./"><img src="assets/icon.png" width="40" height="40" alt="EGA" /><span>Egalitarianism</span></a>
+      <a class="brand" href="./">
+        <img src="assets/icon.png" width="40" height="40" alt="EGA" />
+        <span>Egalitarianism</span>
+      </a>
       <nav class="nav-links">
         <a href="download.html">Download</a>
         <a href="mine.html">Mine</a>
@@ -18,35 +33,93 @@
         <a class="on" href="pool.html">Pool</a>
         <a href="wallet.html">Wallet</a>
         <a href="roadmap.html">Roadmap</a>
+        <a href="whitepaper.html">Whitepaper</a>
       </nav>
     </header>
+
     <div class="page-head">
-      <h1>Mine: solo or shared</h1>
-      <p>All four algorithms. Solo on any node. Shared stratum for every algo.</p>
+      <h1>EGA mining pool</h1>
+      <p>One coin · four algorithms · solo and shared — like other pools, focused only on EGA.</p>
     </div>
-    <section>
-      <div class="grid2">
-        <div class="card"><h3>Solo</h3><p>Your node finds the block → full 50,000 EGA reward.</p></div>
-        <div class="card"><h3>Shared</h3><p>Mine together via stratum → steadier share payouts.</p></div>
+
+    <div class="pool-top">
+      <div class="box"><div class="l">Coin</div><div class="v">EGA</div></div>
+      <div class="box"><div class="l">Algorithms</div><div class="v" style="font-size:.95rem">4 · MultiShield</div></div>
+      <div class="box"><div class="l">Seed</div><div class="v" style="font-size:.85rem">105.225.100.58:20201</div></div>
+      <div class="box"><div class="l">Live dashboard</div><div class="v" style="font-size:.9rem"><a href="http://105.225.100.58:8089/">Open pool UI</a></div></div>
+    </div>
+
+    <section class="three">
+      <div class="card">
+        <h3>Network</h3>
+        <ul>
+          <li>Full nodes validate the same chain</li>
+          <li>Seed: <code>105.225.100.58:20201</code></li>
+          <li><a href="explorer.html">Block explorer</a></li>
+          <li>Android light node supported</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Shared pool mining</h3>
+        <ul>
+          <li>Connect miner → earn by shares</li>
+          <li>Steadier than solo</li>
+          <li>All 4 stratum ports listed below</li>
+          <li>Username = your E… address</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Solo mining</h3>
+        <ul>
+          <li>You find the block → full 50,000 EGA</li>
+          <li>Run a node (PC or phone)</li>
+          <li>Higher variance</li>
+          <li>Works for every algo today</li>
+        </ul>
       </div>
     </section>
+
     <section>
-      <h2>Mining dashboard</h2>
-      <p><a class="btn btn-primary" href="http://105.225.100.58:8089/" target="_blank" rel="noopener">Open pool UI</a></p>
-      <p class="sub">Solo · Shared · Start · Blocks · Wallet</p>
-    </section>
-    <section>
-      <h2>Shared stratum (all 4)</h2>
-      <table>
-        <tr><th>RandomX (CPU)</th><td><code>stratum+tcp://105.225.100.58:3333</code></td></tr>
-        <tr><th>Verthash (GPU)</th><td><code>stratum+tcp://105.225.100.58:3334</code></td></tr>
-        <tr><th>YespowerEGA (phone/weak CPU)</th><td><code>stratum+tcp://105.225.100.58:3335</code></td></tr>
-        <tr><th>Scrypt</th><td><code>stratum+tcp://105.225.100.58:3336</code></td></tr>
-        <tr><th>Username</th><td>Your EGA address (E…)</td></tr>
-        <tr><th>Password</th><td><code>x</code></td></tr>
+      <h2>Start — shared stratum</h2>
+      <p class="sub">Point your miner software at these hosts. Password is always <code>x</code>.</p>
+      <table class="algo">
+        <tr><th>Algorithm</th><th>Hardware</th><th>Stratum URL</th></tr>
+        <tr><td>RandomX</td><td>CPU</td><td><code>stratum+tcp://105.225.100.58:3333</code></td></tr>
+        <tr><td>Verthash</td><td>GPU</td><td><code>stratum+tcp://105.225.100.58:3334</code></td></tr>
+        <tr><td>YespowerEGA</td><td>Phone / weak CPU</td><td><code>stratum+tcp://105.225.100.58:3335</code></td></tr>
+        <tr><td>Scrypt</td><td>CPU / ASIC path</td><td><code>stratum+tcp://105.225.100.58:3336</code></td></tr>
       </table>
+      <div class="cta" style="margin-top:1rem">
+        <a class="btn btn-primary" href="http://105.225.100.58:8089/start">Full start page (live stats)</a>
+        <a class="btn btn-ghost" href="http://105.225.100.58:8089/wallet">Wallet lookup</a>
+      </div>
+      <div class="note" style="margin-top:1rem">
+        Operator must keep pool services running and forward ports 3333–3336 / 8089 for the internet to reach them.
+        On your LAN use <code>127.0.0.1</code> instead of the public IP.
+      </div>
     </section>
-    <footer><span><a href="./">← Home</a></span><span>Egalitarianism</span></footer>
+
+    <section>
+      <h2>GPU Verthash example</h2>
+      <pre><code>VerthashMiner -a verthash \
+  -o stratum+tcp://105.225.100.58:3334 \
+  -u YOUR_EGA_ADDRESS -p x \
+  --all-cl-devices -f ega-verthash.dat \
+  --no-verthash-data_verification</code></pre>
+    </section>
+
+    <section>
+      <h2>Solo (any algo)</h2>
+      <pre><code>egad -daemon
+ega-cli getnewaddress
+ega-cli generatetoaddress 1 YOUR_ADDRESS 10000000 randomx
+# yespower-ega | verthash | scrypt</code></pre>
+    </section>
+
+    <footer>
+      <span><a href="./">← Home</a></span>
+      <span>Egalitarianism</span>
+    </footer>
   </div>
 </body>
 </html>
