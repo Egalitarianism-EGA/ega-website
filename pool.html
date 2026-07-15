@@ -22,33 +22,27 @@
     </header>
     <div class="page-head">
       <h1>Mine: solo or shared</h1>
-      <p>Same chain. Pick how you want to earn.</p>
+      <p>All four algorithms. Solo on any node. Shared stratum for every algo.</p>
     </div>
     <section>
       <div class="grid2">
-        <div class="card">
-          <h3>Solo</h3>
-          <p>You run a node. You find a block → you keep the full reward.</p>
-          <p class="sub">All 4 algorithms work solo (including Android light nodes).</p>
-        </div>
-        <div class="card">
-          <h3>Shared (pool)</h3>
-          <p>Many miners together. Steadier payouts by shares.</p>
-          <p class="sub">Live: Verthash + Scrypt. RandomX + YespowerEGA: solo now; shared next.</p>
-        </div>
+        <div class="card"><h3>Solo</h3><p>Your node finds the block → full 50,000 EGA reward.</p></div>
+        <div class="card"><h3>Shared</h3><p>Mine together via stratum → steadier share payouts.</p></div>
       </div>
     </section>
     <section>
-      <h2>Pool dashboard</h2>
-      <p><a class="btn btn-primary" href="http://105.225.100.58:8089/" target="_blank" rel="noopener">Open mining UI</a></p>
-      <p class="sub" style="margin-top:.75rem">Pages: Solo · Shared · Start · Blocks · Wallet lookup</p>
+      <h2>Mining dashboard</h2>
+      <p><a class="btn btn-primary" href="http://105.225.100.58:8089/" target="_blank" rel="noopener">Open pool UI</a></p>
+      <p class="sub">Solo · Shared · Start · Blocks · Wallet</p>
     </section>
     <section>
-      <h2>Shared stratum (live)</h2>
+      <h2>Shared stratum (all 4)</h2>
       <table>
+        <tr><th>RandomX (CPU)</th><td><code>stratum+tcp://105.225.100.58:3333</code></td></tr>
         <tr><th>Verthash (GPU)</th><td><code>stratum+tcp://105.225.100.58:3334</code></td></tr>
+        <tr><th>YespowerEGA (phone/weak CPU)</th><td><code>stratum+tcp://105.225.100.58:3335</code></td></tr>
         <tr><th>Scrypt</th><td><code>stratum+tcp://105.225.100.58:3336</code></td></tr>
-        <tr><th>Username</th><td>Your EGA address</td></tr>
+        <tr><th>Username</th><td>Your EGA address (E…)</td></tr>
         <tr><th>Password</th><td><code>x</code></td></tr>
       </table>
     </section>
