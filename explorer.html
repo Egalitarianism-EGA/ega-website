@@ -26,36 +26,23 @@
 
     <div class="page-head">
       <h1>Block explorer</h1>
-      <p>Live chain view from the operator node (early network).</p>
+      <p>Blocks, transactions, miner rewards, and wallet address lookup.</p>
     </div>
 
     <section>
       <div class="grid2">
         <div class="card">
-          <h3>Public explorer</h3>
-          <p>Stable as long as the operator PC + port <b>8088</b> stay open:</p>
+          <h3>Open explorer</h3>
           <p style="margin-top:.75rem">
             <a class="btn btn-primary" href="http://105.225.100.58:8088/" target="_blank" rel="noopener">http://105.225.100.58:8088/</a>
           </p>
-          <p class="sub" style="margin-top:.85rem">Requires router port-forward TCP 8088 → this PC. Not a Cloudflare temporary URL.</p>
+          <p class="sub" style="margin-top:.85rem">Search height, txid, or address (starts with E). Requires the operator to keep the explorer online and port 8088 open.</p>
         </div>
         <div class="card">
-          <h3>Local</h3>
-          <p>On the machine running the node:</p>
-          <p style="margin-top:.75rem"><code>http://127.0.0.1:8088</code></p>
-          <p class="sub" style="margin-top:.85rem"><code>bash scripts/ega-explorer.sh</code></p>
+          <h3>Run your own</h3>
+          <p>With a full node: <code>bash scripts/ega-explorer.sh</code> → <code>http://127.0.0.1:8088</code></p>
         </div>
       </div>
-    </section>
-
-    <section>
-      <h2>What it shows</h2>
-      <ul class="steps">
-        <li>Height, peers, issued supply</li>
-        <li>Per-algo difficulty and recent blocks</li>
-        <li>Est. hashrate from recent blocks (not “miners online”)</li>
-        <li>Coinbase maturity note (8 confs on early chain)</li>
-      </ul>
     </section>
 
     <footer>

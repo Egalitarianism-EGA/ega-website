@@ -26,45 +26,43 @@
 
     <div class="page-head">
       <h1>Mine EGA</h1>
-      <p>Four algorithms (MultiShield-4). Mine alone or with friends on the same chain. Public pool is not live yet — use solo / multi-node.</p>
+      <p>Four algorithms. Solo on any full node, or pool for Verthash (GPU) and Scrypt.</p>
     </div>
 
     <section>
       <h2>Pick your hardware</h2>
       <table>
-        <tr><th>RandomX</th><td>Modern CPUs / laptops</td></tr>
-        <tr><th>YespowerEGA</th><td>Weaker CPUs, phones, Pi</td></tr>
-        <tr><th>Verthash</th><td>Consumer GPUs</td></tr>
-        <tr><th>Scrypt</th><td>Hard door (ASIC / capital market) — MultiShield security anchor</td></tr>
+        <tr><th>RandomX</th><td>Modern CPUs — <strong>solo</strong> with the node</td></tr>
+        <tr><th>YespowerEGA</th><td>Weaker CPUs / Pi — <strong>solo</strong></td></tr>
+        <tr><th>Verthash</th><td>GPU — <a href="pool.html">pool</a> <code>stratum+tcp://105.225.100.58:3334</code></td></tr>
+        <tr><th>Scrypt</th><td>CPU/ASIC path — <a href="pool.html">pool</a> <code>stratum+tcp://105.225.100.58:3336</code></td></tr>
       </table>
     </section>
 
     <section>
-      <h2>Solo mining</h2>
-      <p class="sub">You run a node and mine to your own wallet. Blocks you find pay you.</p>
-      <pre><code>bash scripts/easy-start.sh
-bash scripts/easy-mine.sh randomx
-# or: yespower-ega | scrypt
-# GPU: ega-verthash-miner</code></pre>
-      <p class="sub">GPU: <a href="https://github.com/Egalitarianism-EGA/ega-verthash-miner">ega-verthash-miner</a></p>
+      <h2>1. Get the software</h2>
+      <p class="sub"><a href="download.html">Download</a> Linux v0.2.0 or build from source. Run a full node so you stay on the same chain.</p>
+      <pre><code>egad -daemon
+ega-cli getnewaddress</code></pre>
     </section>
 
     <section>
-      <h2>Pool mining</h2>
-      <p class="sub">Connect your miner to a stratum pool and get paid by share of work — like other coins.</p>
-      <div class="cta">
-        <a class="btn btn-primary" href="pool.html">Pool details</a>
-      </div>
+      <h2>2. Join the network</h2>
+      <pre><code># ~/.ega/ega.conf
+addnode=105.225.100.58:20201</code></pre>
+      <p class="sub">Seed is the community bootstrap node (home operator). Port <b>20201</b> must be reachable.</p>
     </section>
 
     <section>
-      <h2>Mine with friends (no pool)</h2>
-      <p class="sub">
-        Everyone runs a node and connects to each other. Same chain.
-        Whoever finds a block keeps that reward.
-      </p>
-      <pre><code># on your machine (~/.ega/ega.conf)
-addnode=FRIEND_IP:20201</code></pre>
+      <h2>3. Solo mine (any algo)</h2>
+      <pre><code>ega-cli generatetoaddress 1 $(ega-cli getnewaddress) 10000000 randomx
+# yespower-ega | verthash | scrypt</code></pre>
+      <p class="sub">Or helpers in the release tarball: <code>scripts/easy-mine.sh randomx</code></p>
+    </section>
+
+    <section>
+      <h2>4. Pool mine (Verthash / Scrypt)</h2>
+      <p class="sub">See <a href="pool.html">Pool</a> for stratum hosts and GPU flags.</p>
     </section>
 
     <footer>

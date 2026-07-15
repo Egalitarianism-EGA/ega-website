@@ -26,38 +26,39 @@
 
     <div class="page-head">
       <h1>Mining pool</h1>
-      <p>Operator Miningcore (real share verify for Verthash + Scrypt).</p>
+      <p>Point a miner at stratum, use your EGA address as username, get paid shares on Verthash and Scrypt.</p>
     </div>
 
     <section>
-      <h2>Public stratum (early)</h2>
-      <div class="note">
-        Host: <code>105.225.100.58</code> — open on the operator machine when the pool process is running.
-        Forward TCP <b>3334</b> / <b>3336</b> / <b>4000</b> if mining from outside your LAN.
-      </div>
+      <h2>Live stratum</h2>
       <table>
         <tr><th>Verthash (GPU)</th><td><code>stratum+tcp://105.225.100.58:3334</code></td></tr>
         <tr><th>Scrypt</th><td><code>stratum+tcp://105.225.100.58:3336</code></td></tr>
-        <tr><th>Username</th><td>Your EGA address (starts with E)</td></tr>
+        <tr><th>Username</th><td>Your EGA wallet address (starts with <code>E</code>)</td></tr>
         <tr><th>Password</th><td><code>x</code></td></tr>
-        <tr><th>API</th><td><code>http://105.225.100.58:4000/api/pools</code></td></tr>
       </table>
+      <div class="note" style="margin-top:1rem">
+        Operator must leave the pool online and forward ports <b>3334</b> / <b>3336</b> for the internet to reach them.
+        Dashboard (human UI): <code>http://105.225.100.58:8089/</code> when port 8089 is open — or ask the operator.
+      </div>
     </section>
 
     <section>
-      <h2>Not on this pool yet</h2>
+      <h2>GPU Verthash example</h2>
+      <pre><code>VerthashMiner -a verthash \
+  -o stratum+tcp://105.225.100.58:3334 \
+  -u YOUR_EGA_ADDRESS -p x \
+  --all-cl-devices -f ega-verthash.dat \
+  --no-verthash-data_verification</code></pre>
+      <p class="sub">Dataset: <a href="https://github.com/Egalitarianism-EGA/ega-verthash-miner">ega-verthash-miner</a> (EGA 256 MiB file, not stock Vertcoin).</p>
+    </section>
+
+    <section>
+      <h2>CPU algos (solo for now)</h2>
       <p class="sub">
-        <strong>RandomX</strong> and <strong>YespowerEGA</strong> need custom Miningcore work for EGA’s multi-algo Bitcoin-family headers.
-        Solo CPU: <code>bash scripts/easy-mine.sh randomx 1</code> or continuous-mine.
+        <strong>RandomX</strong> and <strong>YespowerEGA</strong> are mined solo with the node
+        (<code>easy-mine.sh</code>). Full stratum share-verify for those two is not in stock Miningcore yet.
       </p>
-    </section>
-
-    <section>
-      <h2>GPU Verthash (operator)</h2>
-      <pre><code>bash scripts/start-miningcore.sh
-bash scripts/start-gpu-verthash.sh
-# ~0.9 MH/s class on RTX 5060 Ti with EGA verthash.dat
-</code></pre>
     </section>
 
     <footer>
