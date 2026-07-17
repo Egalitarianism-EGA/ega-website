@@ -45,8 +45,8 @@
     <div class="pool-top">
       <div class="box"><div class="l">Coin</div><div class="v">EGA</div></div>
       <div class="box"><div class="l">Algorithms</div><div class="v" style="font-size:.95rem">4 · MultiShield</div></div>
-      <div class="box"><div class="l">Seed</div><div class="v" style="font-size:.85rem">105.225.100.58:20201</div></div>
-      <div class="box"><div class="l">Live dashboard</div><div class="v" style="font-size:.9rem"><a href="http://105.225.100.58:8089/">Open pool UI</a></div></div>
+      <div class="box"><div class="l">Seed</div><div class="v" style="font-size:.85rem">105.225.132.175:20201</div></div>
+      <div class="box"><div class="l">Live dashboard</div><div class="v" style="font-size:.9rem"><a href="http://105.225.132.175:8089/">Open pool UI</a></div></div>
     </div>
 
     <section class="three">
@@ -54,7 +54,7 @@
         <h3>Network</h3>
         <ul>
           <li>Full nodes validate the same chain</li>
-          <li>Seed: <code>105.225.100.58:20201</code></li>
+          <li>Seed: <code>105.225.132.175:20201</code></li>
           <li><a href="explorer.html">Block explorer</a></li>
           <li>Android light node supported</li>
         </ul>
@@ -84,14 +84,14 @@
       <p class="sub">Point your miner software at these hosts. Password is always <code>x</code>.</p>
       <table class="algo">
         <tr><th>Algorithm</th><th>Hardware</th><th>Stratum URL</th></tr>
-        <tr><td>RandomX</td><td>CPU</td><td><code>stratum+tcp://105.225.100.58:3333</code></td></tr>
-        <tr><td>Verthash</td><td>GPU</td><td><code>stratum+tcp://105.225.100.58:3334</code></td></tr>
-        <tr><td>YespowerEGA</td><td>Phone / weak CPU</td><td><code>stratum+tcp://105.225.100.58:3335</code></td></tr>
-        <tr><td>Scrypt</td><td>CPU / ASIC path</td><td><code>stratum+tcp://105.225.100.58:3336</code></td></tr>
+        <tr><td>RandomX</td><td>CPU</td><td><code>stratum+tcp://105.225.132.175:3333</code></td></tr>
+        <tr><td>Verthash</td><td>GPU</td><td><code>stratum+tcp://105.225.132.175:3334</code></td></tr>
+        <tr><td>YespowerEGA</td><td>Phone / weak CPU</td><td><code>stratum+tcp://105.225.132.175:3335</code></td></tr>
+        <tr><td>Scrypt</td><td>CPU / ASIC path</td><td><code>stratum+tcp://105.225.132.175:3336</code></td></tr>
       </table>
       <div class="cta" style="margin-top:1rem">
-        <a class="btn btn-primary" href="http://105.225.100.58:8089/start">Full start page (live stats)</a>
-        <a class="btn btn-ghost" href="http://105.225.100.58:8089/wallet">Wallet lookup</a>
+        <a class="btn btn-primary" href="http://105.225.132.175:8089/start">Full start page (live stats)</a>
+        <a class="btn btn-ghost" href="http://105.225.132.175:8089/wallet">Wallet lookup</a>
       </div>
       <div class="note" style="margin-top:1rem">
         Operator must keep pool services running and forward ports 3333–3336 / 8089 for the internet to reach them.
@@ -102,7 +102,7 @@
     <section>
       <h2>GPU Verthash example</h2>
       <pre><code>VerthashMiner -a verthash \
-  -o stratum+tcp://105.225.100.58:3334 \
+  -o stratum+tcp://105.225.132.175:3334 \
   -u YOUR_EGA_ADDRESS -p x \
   --all-cl-devices -f ega-verthash.dat \
   --no-verthash-data_verification</code></pre>
